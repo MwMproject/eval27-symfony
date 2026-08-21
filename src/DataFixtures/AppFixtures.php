@@ -42,9 +42,9 @@ class AppFixtures extends Fixture
         $manager->persist($admin);
 
         $staff = (new User())
-            ->setEmail('staff@symfony')
-            ->setPrenom('Paul')
-            ->setNom('Support')
+            ->setEmail('support@symfony')
+            ->setPrenom('Support')
+            ->setNom('Technique')
             ->setRoles(['ROLE_STAFF']);
         $staff->setPassword($this->passwordHasher->hashPassword($staff, 'Staff123!'));
         $manager->persist($staff);

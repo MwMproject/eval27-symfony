@@ -24,7 +24,7 @@ La connexion à la base doit être définie localement dans `.env.local` avec la
 ## Comptes de démonstration
 
 - Administrateur : `admin@symfony` / `Admin123!`
-- Personnel : `staff@symfony` / `Staff123!`
+- Personnel : `support@symfony` / `Staff123!`
 
 ## Fonctionnalités
 
