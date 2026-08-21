@@ -1,4 +1,4 @@
-# Eval27 - Gestion de tickets Symfony
+# Projet Symfony - Gestion de tickets
 
 Application interne permettant aux clients de créer un ticket et au personnel de suivre son traitement.
 
@@ -24,7 +24,7 @@ La connexion à la base doit être définie localement dans `.env.local` avec la
 ## Comptes de démonstration
 
 - Administrateur : `admin@symfony` / `Admin123!`
-- Personnel : `staff@eval27.test` / `Staff123!`
+- Personnel : `staff@symfony` / `Staff123!`
 
 ## Fonctionnalités
 

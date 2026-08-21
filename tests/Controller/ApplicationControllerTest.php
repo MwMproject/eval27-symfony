@@ -69,7 +69,7 @@ class ApplicationControllerTest extends WebTestCase
         $client = static::createClient();
         $crawler = $client->request('GET', '/connexion');
         $client->submit($crawler->selectButton('Se connecter')->form([
-            '_username' => 'staff@eval27.test',
+            '_username' => 'staff@symfony',
             '_password' => 'Staff123!',
         ]));
         $client->followRedirect();
@@ -83,7 +83,7 @@ class ApplicationControllerTest extends WebTestCase
         $client = static::createClient();
         $crawler = $client->request('GET', '/connexion');
         $client->submit($crawler->selectButton('Se connecter')->form([
-            '_username' => 'staff@eval27.test',
+            '_username' => 'staff@symfony',
             '_password' => 'Staff123!',
         ]));
         $client->followRedirect();
