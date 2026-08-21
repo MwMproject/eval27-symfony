@@ -52,7 +52,7 @@ class ApplicationControllerTest extends WebTestCase
         $client = static::createClient();
         $crawler = $client->request('GET', '/connexion');
         $client->submit($crawler->selectButton('Se connecter')->form([
-            '_username' => 'admin@eval27.test',
+            '_username' => 'admin@symfony',
             '_password' => 'Admin123!',
         ]));
 

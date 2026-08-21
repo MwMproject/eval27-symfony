@@ -34,7 +34,7 @@ class AppFixtures extends Fixture
         }
 
         $admin = (new User())
-            ->setEmail('admin@eval27.test')
+            ->setEmail('admin@symfony')
             ->setPrenom('Alice')
             ->setNom('Admin')
             ->setRoles(['ROLE_ADMIN']);

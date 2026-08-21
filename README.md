@@ -23,7 +23,7 @@ La connexion à la base doit être définie localement dans `.env.local` avec la
 
 ## Comptes de démonstration
 
-- Administrateur : `admin@eval27.test` / `Admin123!`
+- Administrateur : `admin@symfony` / `Admin123!`
 - Personnel : `staff@eval27.test` / `Staff123!`
 
 ## Fonctionnalités
