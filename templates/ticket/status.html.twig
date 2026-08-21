@@ -3,13 +3,18 @@
 {% block title %}Modifier le statut{% endblock %}
 
 {% block body %}
-    <div class="row justify-content-center"><div class="col-lg-6">
-        <div class="card shadow-sm"><div class="card-body p-4">
-            <h1 class="h3">Statut du ticket #{{ ticket.id }}</h1>
-            {{ form_start(form) }}{{ form_widget(form) }}
-                <button class="btn btn-primary">Enregistrer</button>
-                <a class="btn btn-outline-secondary" href="{{ path('app_ticket_show', {id: ticket.id}) }}">Annuler</a>
-            {{ form_end(form) }}
-        </div></div>
-    </div></div>
+    <div class="row justify-content-center">
+        <div class="col-lg-6">
+            <div class="card shadow-sm">
+                <div class="card-body p-4">
+                    <h1 class="h3">Statut du ticket #{{ ticket.id }}</h1>
+                    {{ form_start(form) }}
+                        {{ form_widget(form) }}
+                        <button class="btn btn-primary">Enregistrer</button>
+                        <a class="btn btn-outline-secondary" href="{{ path('app_ticket_show', {id: ticket.id}) }}">Annuler</a>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
