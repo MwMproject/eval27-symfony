@@ -21,6 +21,7 @@ class Ticket
     private ?string $auteur = null;
 
     #[ORM\Column]
+    #[Assert\NotNull]
     private ?\DateTimeImmutable $dateOuverture = null;
 
     #[ORM\Column(nullable: true)]

@@ -31,12 +31,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @var list<string> The user roles
      */
     #[ORM\Column]
+    #[Assert\Count(min: 1, minMessage: 'Sélectionnez au moins un rôle.')]
     private array $roles = [];
 
     /**
      * @var string The hashed password
      */
     #[ORM\Column]
+    #[Assert\NotBlank]
     private ?string $password = null;
 
     #[ORM\Column(length: 100)]
@@ -178,22 +180,22 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->ticketsAssignes;
     }
 
-    public function addTicketsAssigne(Ticket $ticketsAssigne): static
+    public function addTicketAssigne(Ticket $ticketAssigne): static
     {
-        if (!$this->ticketsAssignes->contains($ticketsAssigne)) {
-            $this->ticketsAssignes->add($ticketsAssigne);
-            $ticketsAssigne->setResponsable($this);
+        if (!$this->ticketsAssignes->contains($ticketAssigne)) {
+            $this->ticketsAssignes->add($ticketAssigne);
+            $ticketAssigne->setResponsable($this);
         }
 
         return $this;
     }
 
-    public function removeTicketsAssigne(Ticket $ticketsAssigne): static
+    public function removeTicketAssigne(Ticket $ticketAssigne): static
     {
-        if ($this->ticketsAssignes->removeElement($ticketsAssigne)) {
+        if ($this->ticketsAssignes->removeElement($ticketAssigne)) {
             // set the owning side to null (unless already changed)
-            if ($ticketsAssigne->getResponsable() === $this) {
-                $ticketsAssigne->setResponsable(null);
+            if ($ticketAssigne->getResponsable() === $this) {
+                $ticketAssigne->setResponsable(null);
             }
         }
 

@@ -11,6 +11,10 @@ security:
                 class: App\Entity\User
                 property: email
 
+    role_hierarchy:
+        ROLE_STAFF: ROLE_USER
+        ROLE_ADMIN: ROLE_STAFF
+
     firewalls:
         dev:
             # Ensure dev tools and static assets are always allowed
@@ -20,16 +24,19 @@ security:
             lazy: true
             provider: app_user_provider
 
-            # Activate different ways to authenticate:
-            # https://symfony.com/doc/current/security.html#the-firewall
+            form_login:
+                login_path: app_login
+                check_path: app_login
+                enable_csrf: true
 
-            # https://symfony.com/doc/current/security/impersonating_user.html
-            # switch_user: true
+            logout:
+                path: app_logout
+                target: app_home
 
     # Note: Only the *first* matching rule is applied
     access_control:
-        # - { path: ^/admin, roles: ROLE_ADMIN }
-        # - { path: ^/profile, roles: ROLE_USER }
+        - { path: ^/admin, roles: ROLE_ADMIN }
+        - { path: ^/tickets, roles: ROLE_STAFF }
 
 when@test:
     security:
