@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des tickets{% endblock %}
+
+{% block body %}
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="h2 mb-0">Tickets</h1>
+        {% if is_granted('ROLE_ADMIN') %}<a class="btn btn-primary" href="{{ path('app_admin_ticket_new') }}">Nouveau ticket</a>{% endif %}
+    </div>
+    <div class="card shadow-sm"><div class="table-responsive">
+        <table class="table table-hover mb-0">
+            <thead><tr><th>#</th><th>Ouverture</th><th>Auteur</th><th>Catégorie</th><th>État</th><th>Responsable</th><th></th></tr></thead>
+            <tbody>
+            {% for ticket in tickets %}
+                <tr>
+                    <td>{{ ticket.id }}</td>
+                    <td>{{ ticket.dateOuverture|date('d/m/Y H:i') }}</td>
+                    <td>{{ ticket.auteur }}</td><td>{{ ticket.categorie }}</td>
+                    <td><span class="badge text-bg-secondary">{{ ticket.etat }}</span></td>
+                    <td>{{ ticket.responsable ?: 'Non assigné' }}</td>
+                    <td><a class="btn btn-sm btn-outline-primary" href="{{ path('app_ticket_show', {id: ticket.id}) }}">Voir</a></td>
+                </tr>
+            {% else %}<tr><td colspan="7" class="text-center py-4">Aucun ticket.</td></tr>{% endfor %}
+            </tbody>
+        </table>
+    </div></div>
+{% endblock %}

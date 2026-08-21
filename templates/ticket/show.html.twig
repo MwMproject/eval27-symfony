@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ticket #{{ ticket.id }}{% endblock %}
+
+{% block body %}
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="h2 mb-0">Ticket #{{ ticket.id }}</h1>
+        <a class="btn btn-outline-secondary" href="{{ path('app_ticket_index') }}">Retour</a>
+    </div>
+    <div class="card shadow-sm"><div class="card-body p-4">
+        <dl class="row mb-0">
+            <dt class="col-sm-3">Auteur</dt><dd class="col-sm-9">{{ ticket.auteur }}</dd>
+            <dt class="col-sm-3">Ouverture</dt><dd class="col-sm-9">{{ ticket.dateOuverture|date('d/m/Y H:i') }}</dd>
+            <dt class="col-sm-3">Clôture</dt><dd class="col-sm-9">{{ ticket.dateCloture ? ticket.dateCloture|date('d/m/Y H:i') : 'Non clôturé' }}</dd>
+            <dt class="col-sm-3">Catégorie</dt><dd class="col-sm-9">{{ ticket.categorie }}</dd>
+            <dt class="col-sm-3">État</dt><dd class="col-sm-9">{{ ticket.etat }}</dd>
+            <dt class="col-sm-3">Responsable</dt><dd class="col-sm-9">{{ ticket.responsable ?: 'Non assigné' }}</dd>
+            <dt class="col-sm-3">Description</dt><dd class="col-sm-9 description">{{ ticket.description }}</dd>
+        </dl>
+        <a class="btn btn-primary mt-3" href="{{ path('app_ticket_status', {id: ticket.id}) }}">Modifier le statut</a>
+        {% if is_granted('ROLE_ADMIN') %}<a class="btn btn-outline-primary mt-3" href="{{ path('app_admin_ticket_edit', {id: ticket.id}) }}">Modifier tout le ticket</a>{% endif %}
+    </div></div>
+{% endblock %}

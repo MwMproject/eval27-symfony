@@ -1,3 +1,5 @@
-body {
-    background-color: skyblue;
-}
+body { background: #f4f7fb; color: #243447; }
+.hero { background: linear-gradient(135deg, #0d6efd, #4d8eff); color: white; border-radius: 1.25rem; }
+.card { border: 0; border-radius: 1rem; }
+.table > :not(caption) > * > * { vertical-align: middle; }
+.description { white-space: pre-line; }

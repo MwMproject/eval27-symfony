@@ -1,0 +1,7 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{ title }}{% endblock %}
+{% block body %}
+    <div class="card shadow-sm"><div class="card-body p-4">
+        <h1 class="h3 mb-4">{{ title }}</h1>{{ form_start(form) }}{{ form_widget(form) }}<button class="btn btn-primary">Enregistrer</button> <a class="btn btn-outline-secondary" href="{{ path('app_admin_ticket_index') }}">Annuler</a>{{ form_end(form) }}
+    </div></div>
+{% endblock %}

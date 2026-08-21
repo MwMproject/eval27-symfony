@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil | Support tickets{% endblock %}
+
+{% block body %}
+    <section class="hero p-4 p-md-5 mb-4 shadow-sm">
+        <h1 class="display-6 fw-bold">Comment pouvons-nous vous aider ?</h1>
+        <p class="lead mb-0">Décrivez votre demande. Notre équipe vous répondra dans les meilleurs délais.</p>
+    </section>
+
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card shadow-sm">
+                <div class="card-body p-4">
+                    <h2 class="h4 mb-4">Créer un ticket</h2>
+                    {{ form_start(ticketForm) }}
+                        {{ form_widget(ticketForm) }}
+                        <button class="btn btn-primary">Envoyer le ticket</button>
+                    {{ form_end(ticketForm) }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

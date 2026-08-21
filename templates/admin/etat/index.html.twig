@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+{% block title %}États{% endblock %}
+{% block body %}
+    <div class="d-flex justify-content-between mb-4"><h1 class="h2">États</h1><a class="btn btn-primary" href="{{ path('app_admin_etat_new') }}">Ajouter</a></div>
+    <div class="card shadow-sm"><div class="table-responsive"><table class="table mb-0">
+        <thead><tr><th>Nom</th><th class="text-end">Action</th></tr></thead><tbody>
+        {% for etat in etats %}<tr><td>{{ etat.nom }}</td><td class="text-end"><a class="btn btn-sm btn-outline-primary" href="{{ path('app_admin_etat_edit', {id: etat.id}) }}">Modifier</a></td></tr>{% else %}<tr><td colspan="2">Aucun état.</td></tr>{% endfor %}
+        </tbody></table></div></div>
+{% endblock %}
